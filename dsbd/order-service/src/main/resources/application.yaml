@@ -1,13 +1,14 @@
 spring:
   cloud:
     stream:
-      function:
-        defination: orderSupplier #publisher
+      function:   #   producer   |      consumer
+        defination: orderSupplier;paymentEventConsumer
       bindings:
-          orderSupplier-out-0:
-            destination: order-event #nome topic
-
+          orderSupplier-out-0: #topic out ----> payment-event
+            destination: order-event #orderSupplier-out-0 è la destinazione del per il topic order-event
+          paymentEventConsumer-in-0: #topic in -----> payment-event
+            destination: payment-event #paymentEventConsumer-in-0 è la destinazione per il topic payment-event
 
 
 server:
-  port: 8081
+  port: 8082

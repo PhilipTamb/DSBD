@@ -32,7 +32,7 @@ public class PaymentConsumerConfig {
         // if balance sufficient -> Payment completed and deduct amount from DB
         //if payment fail or not sufficiet -> cancel order event end update the ammount in DB
         if(OrderStatus.ORDER_CREATED.equals(orderEvent.getOrderStatus())){
-            return Mono.fromSupplier(()->this.paymentService.newOrderEvent());
+            return Mono.fromSupplier(()->this.paymentService.newOrderEvent(orderEvent));
         }else{
             return Mono.fromRunnable(()->this.paymentService.cancelOrderEvent(orderEvent));
         }
