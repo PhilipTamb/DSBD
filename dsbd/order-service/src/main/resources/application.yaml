@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    stream:
+      function:
+        defination: orderSupplier #publisher
+      bindings:
+          orderSupplier-out-0:
+            destination: order-event #nome topic
+
+
+
+server:
+  port: 8081

@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    stream:
+      function:       #stiamo definendo il publisher e il subscriber e le info del topic
+        definition: paymentProcessor
+      binding:
+        paymentProcessor-in-0 :   #topic in -----> oder-event
+          destination : order-event  #nome del topic in ingresso
+        paymentProcessor-out-0 :   #topic out ----> payment-event
+          destination: payment-event  #nome del topic in uscita
