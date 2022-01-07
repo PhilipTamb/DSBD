@@ -20,7 +20,7 @@ public class PaymentConsumerConfig {
 
     //questo Payment Consumer deve ricevere dal topic order-event sul quale ha pubblicato Order Service
     //questo consente di ricevere l'evento OrderEvent, di processare i dati e di pubblicare un'altro evento PaymentEvent
-    @Bean
+    @Bean  //definizione topic paymentProcessor in cui scrive payment-service
     public Function<Flux<OrderEvent>, Flux<PaymentEvent>> paymentProcessor() {
         return orderEventFlux -> orderEventFlux.flatMap(this::processPayment);
 

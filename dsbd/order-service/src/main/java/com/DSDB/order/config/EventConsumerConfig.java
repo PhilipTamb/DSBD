@@ -21,8 +21,7 @@ public class EventConsumerConfig {
         //if payment status failed -> cancel order
 
         //espressione Lambda (Lista degli argomenti) -> Espressione     oppure    (Lista degli argomenti)->{ istruzioni; }
-        return (payment) -> handler.updateOrder(payment.getPaymentRequestDto().getOrderId(),po->{
-            po.setPaymentStatus((payment.getPaymentStatus()));
+        return (payment) -> handler.updateOrder(payment.getPaymentRequestDto().getOrderId(),po->{po.setPaymentStatus((payment.getPaymentStatus()));
 
         });
 

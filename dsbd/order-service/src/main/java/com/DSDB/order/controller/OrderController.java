@@ -15,12 +15,12 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("/create")
+    @PostMapping("/create") //  /order/create
     public PurchaseOrder createOrder(@RequestBody OrderRequestDto orderRequestDto){
         return orderService.createOrder(orderRequestDto);
     }
 
-    @GetMapping
+    @GetMapping// /order
     public List<PurchaseOrder> getOrder(){
         return orderService.getAllOrders();
     }

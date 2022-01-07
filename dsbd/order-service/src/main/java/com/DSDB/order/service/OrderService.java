@@ -5,10 +5,13 @@ import com.DSBD.commons.event.OrderStatus;
 import com.DSDB.order.entity.PurchaseOrder;
 import com.DSDB.order.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class OrderService {
     @Autowired
     private OrderRepository orderRepository;

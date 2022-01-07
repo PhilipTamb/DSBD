@@ -40,7 +40,13 @@ public class PaymentService {
         2) check the balance availability
         3a) if balance sufficient -> Payment completed and deduct amount from DB
         3b) if payment fail or not sufficiet -> cancel order event end update the ammount in DB */
-    @Transactional// L' annotazione @Transactional sono i metadati che specificano la semantica delle transazioni su un metodo. Abbiamo due modi per eseguire il rollback di una transazione: dichiarativo e programmatico. Nell'approccio dichiarativo, annotiamo i metodi con l' annotazione @ Transactional . L' annotazione @Transactional utilizza gli attributi rollbackFor o rollbackForClassName per eseguire il rollback delle transazioni e gli attributi noRollbackFor o noRollbackForClassName per evitare il rollback sulle eccezioni elencate.Il comportamento di rollback predefinito nell'approccio dichiarativo eseguirà il rollback sulle eccezioni di runtime.
+
+    @Transactional// L' annotazione @Transactional sono i metadati che specificano la semantica delle transazioni su un metodo.
+    // Abbiamo due modi per eseguire il rollback di una transazione: dichiarativo e programmatico.
+    // Nell'approccio dichiarativo, annotiamo i metodi con l' annotazione @ Transactional .
+    // L' annotazione @Transactional utilizza gli attributi rollbackFor o rollbackForClassName per eseguire il rollback delle transazioni
+    // e gli attributi noRollbackFor o noRollbackForClassName per evitare il rollback sulle eccezioni elencate.
+    // Il comportamento di rollback predefinito nell'approccio dichiarativo eseguirà il rollback sulle eccezioni di runtime.
     public PaymentEvent newOrderEvent(OrderEvent orderEvent) {
         // usiamo orderRequestDto per processare il payment, per crearlo prendiamo le info dall'OrderEvent che abbiamo ricevuto dal topic
         OrderRequestDto orderRequestDto = orderEvent.getOrderRequestDto();
